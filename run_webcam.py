@@ -114,7 +114,7 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-src', '--source', dest='video_source', type=int,
+    parser.add_argument('-src', '--source', dest='video_source', type=str,
                         default=0, help='Device index of the camera.')
     parser.add_argument('--show', dest='display_landmark', type=int, default=0, choices=[0, 1],
                         help='0 shows the normal input and 1 the facial landmark.')

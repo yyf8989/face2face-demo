@@ -21,15 +21,17 @@ def main():
     fps = video.FPS().start()
 
     count = 0
+    print(cap.isOpened())
     while cap.isOpened():
         ret, frame = cap.read()
-
-        frame_resize = cv2.resize(frame, None, fx=1 / DOWNSAMPLE_RATIO, fy=1 / DOWNSAMPLE_RATIO)
+        frame_resize = cv2.resize(frame, None, fx=1/4, fy=1/4)
         gray = cv2.cvtColor(frame_resize, cv2.COLOR_BGR2GRAY)
         faces = detector(gray, 1)
+        # print(faces)
         black_image = np.zeros(frame.shape, np.uint8)
-
+        # print("*******************")
         t = time.time()
+        # print(t)
 
         # Perform if there is a face detected
         if len(faces) == 1:
